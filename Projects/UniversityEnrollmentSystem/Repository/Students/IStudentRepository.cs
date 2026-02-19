@@ -1,6 +1,13 @@
-﻿namespace UniversityEnrollmentSystem.Repository.Students
+﻿using UniversityEnrollmentSystem.Models;
+
+namespace UniversityEnrollmentSystem.Repository.Students
 {
-    public class IStudentRepository
+    public interface IStudentRepository
     {
+        Task AddStudentAsync(Student student);
+        Task Update(Student student);
+        Task Delete(Student student);
+        Task <Student?> GetByIdAsync(int id);
+        Task <List<Student>> GetAllAsync();
     }
 }

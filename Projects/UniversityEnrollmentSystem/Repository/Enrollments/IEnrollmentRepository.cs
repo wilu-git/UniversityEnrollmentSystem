@@ -2,31 +2,12 @@
 
 namespace UniversityEnrollmentSystem.Repository.Enrollments
 {
-    public class IEnrollmentRepository
+    public interface IEnrollmentRepository
     {
-        internal async Task AddAsync(Enrollment enrollment)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal async Task<bool> ExistsAsync(int studentId, int courseId)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal async Task GetByIdAsync(int enrollmentId)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal async Task GetCourseWithEnrollmentsAsync(int courseId)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal async Task UpdateAsync(object enrollment)
-        {
-            throw new NotImplementedException();
-        }
+        Task AddEnrollmentAsync(Enrollment enrollment);
+        Task Update(Enrollment enrollment);
+        Task Delete(Enrollment enrollment);
+        Task <Enrollment?> GetByIdAsync(int id);
+        Task <List<Enrollment>> GetAllAsync();
     }
 }
