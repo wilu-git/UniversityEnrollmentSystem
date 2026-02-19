@@ -18,4 +18,5 @@ public partial class Enrollment
     public virtual CourseOffering CourseOffering { get; set; } = null!;
 
     public virtual Student Student { get; set; } = null!;
+    public int Grade { get; internal set; }
 }
