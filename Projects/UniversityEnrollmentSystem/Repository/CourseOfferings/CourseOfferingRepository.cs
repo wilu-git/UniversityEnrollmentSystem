@@ -1,4 +1,5 @@
-﻿using UniversityEnrollmentSystem.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using UniversityEnrollmentSystem.Models;
 
 namespace UniversityEnrollmentSystem.Repository.CourseOfferings
 {
@@ -31,8 +32,10 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
 
          public async Task<List<CourseOffering>> GetAllAsync()
         {
-
+            return await _context.CourseOfferings.ToListAsync();
         }
+
+
 
     }
 
