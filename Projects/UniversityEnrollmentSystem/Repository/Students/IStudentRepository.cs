@@ -9,5 +9,6 @@ namespace UniversityEnrollmentSystem.Repository.Students
         Task Delete(Student student);
         Task <Student?> GetByIdAsync(int id);
         Task <List<Student>> GetAllAsync();
+        Task GetByEmailAsync(string? email);
     }
 }
