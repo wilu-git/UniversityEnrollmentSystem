@@ -6,15 +6,16 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
     {
         Task AddCourseOfferingAsync(CourseOffering courseOffering);
 
-        Task Update(CourseOffering courseOffer);
+        Task UpdateAsync(CourseOffering courseOffer);
 
-        Task Delete(CourseOffering courseOffer);
+        Task DeleteAsync(CourseOffering courseOffer);
 
         Task <CourseOffering?> GetByIdAsync(int id);
 
         Task <List<CourseOffering>> GetAllAsync();
-        Task DeleteAsync(int courseId);
-        Task GetWithEnrollmentsAsync(int courseId);
-        Task GetWithEnrollmentsAsync();
+
+        Task<int> GetEnrollmentCountAsync(int courseOfferingId);
+
+        Task<CourseOffering?> GetWithCourseAsync(int id);
     }
 }
