@@ -8,7 +8,7 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
         private readonly UniversityDbContext _context = context;
     
 
-        public async Task AddEnrollmentAsync(Enrollment enrollment)
+        public async Task AddAsync(Enrollment enrollment)
         {
             await _context.Enrollments.AddAsync(enrollment);
             await _context.SaveChangesAsync();
@@ -35,10 +35,19 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
             return await _context.Enrollments.ToListAsync();
         }
 
-        public async Task<bool> HasEnrollmentsAsync(int courseOfferingId)
+        public async Task<bool> ExistsAsync(int studentId, int courseId)
         {
             return await _context.Enrollments
-                .AnyAsync(e => e.CourseOfferingId == courseOfferingId);
+        .AnyAsync(e => e.StudentId == studentId && e.CourseOfferingId == courseId);
         }
+
+        public async Task GetCourseWithEnrollmentsAsync(int courseId)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        
     }
 }
