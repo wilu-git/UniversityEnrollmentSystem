@@ -12,47 +12,34 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
             _enrollmentRepository = enrollmentRepository;
         }
 
-        public async Task AssignGradeAsync(int v1, int v2)
+        public async Task<Enrollment> EnrollAsync(int studentId, int courseId)
         {
-            throw new NotImplementedException();
+            var course = await _enrollmentRepository.GetCourseWithEnrollmentsAsync(courseId);
+
+            if (course == null)
+                throw new Exception("Course not found");
+
+            bool alreadyExists =
+                await _enrollmentRepository.ExistsAsync(studentId, courseId);
+
+            if (alreadyExists)
+                throw new Exception("Student already enrolled");
+
+
+            var today = DateTime.Today;
+
+            
+            var enrollment = new Enrollment
+            {
+                StudentId = studentId,
+                CourseOfferingId = courseId,
+                Grade = 0
+            };
+
+            await _enrollmentRepository.AddAsync(enrollment);
+
+            return enrollment;
         }
-
-        //public async Task<Enrollment> EnrollAsync(int studentId, int courseId)
-        //{
-        //    throw new NotImplementedException();
-        //    //var course = await _enrollmentRepository.GetCourseWithEnrollmentsAsync(courseId);
-
-        //    //if (course == null)
-        //    //    throw new Exception("Course not found");
-
-
-        //    //if (course.Enrollments.Count >= course.Capacity)
-        //    //    throw new Exception("Course is full");
-
-        //    //bool alreadyExists =
-        //    //    await _enrollmentRepository.ExistsAsync(studentId, courseId);
-
-        //    //if (alreadyExists)
-        //    //    throw new Exception("Student already enrolled");
-
-
-        //    //var today = DateTime.Today;
-
-        //    //if (today < course.StartDate || today > course.EndDate)
-        //    //    throw new Exception//}("Enrollment outside semester dates");
-
-
-        //    //var enrollment = new Enrollment
-        //    //{
-        //    //    StudentId = studentId,
-        //    //    CourseOfferingId = courseId,
-        //    //    Grade = 0
-        //    //};
-
-        //    //await _enrollmentRepository.AddAsync(enrollment);
-
-        //    //return enrollment;
-
 
         public async Task DeleteCourseOfferingAsync(int id)
         {
@@ -77,20 +64,20 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
             throw new NotImplementedException();
         }
 
-        //public async Task UpdateGradeAsync(int enrollmentId, int grade)
-        //{
-           
-        //    if (grade < 0 || grade > 100)
-        //        throw new Exception("Grade must be between 0 and 100");
+        public async Task UpdateGradeAsync(int enrollmentId, int grade)
+        {
 
-        //    var enrollment = await _enrollmentRepository.GetByIdAsync(enrollmentId);
+            if (grade < 0 || grade > 100)
+                throw new Exception("Grade must be between 0 and 100");
 
-        //    if (enrollment == null)
-        //        throw new Exception("Enrollment not found");
+            var enrollment = await _enrollmentRepository.GetByIdAsync(enrollmentId);
 
-        //    enrollment.Grade = grade;
+            if (enrollment == null)
+                throw new Exception("Enrollment not found");
 
-        //    await _enrollmentRepository.UpdateAsync(enrollment);
-        //}
+            enrollment.Grade = grade;
+
+            await _enrollmentRepository.UpdateAsync(enrollment);
+        }
     }
 }

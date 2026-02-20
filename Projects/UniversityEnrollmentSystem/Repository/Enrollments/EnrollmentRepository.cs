@@ -41,9 +41,23 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
         .AnyAsync(e => e.StudentId == studentId && e.CourseOfferingId == courseId);
         }
 
-        public async Task GetCourseWithEnrollmentsAsync(int courseId)
+        public async Task<Course> GetCourseWithEnrollmentsAsync(int courseId)
         {
-            throw new NotImplementedException();
+            // Fetch the course along with its enrollments using eager loading
+            var course = await _context.Courses
+                .Include(c => c.CourseOfferings)
+                    .ThenInclude(co => co.Enrollments)
+                .FirstOrDefaultAsync(c => c.CourseId == courseId);
+
+            // Ensure a course is returned or throw an exception if not found
+            if (course == null)
+            {
+                throw new KeyNotFoundException($"Course with ID {courseId} not found.");
+            }
+
+            return course;
         }
+
+        
     }
 }
