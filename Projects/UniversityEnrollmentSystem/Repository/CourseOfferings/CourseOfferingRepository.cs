@@ -10,7 +10,8 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
 
         public async Task AddCourseOfferingAsync(CourseOffering courseOffer)
         {
-            await _context.CourseOfferings.AddAsync(courseOffer);
+             await _context.CourseOfferings.AddAsync(courseOffer);
+            await _context.SaveChangesAsync();
         }
 
         public async Task Update(CourseOffering courseOffer)
@@ -33,6 +34,11 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
          public async Task<List<CourseOffering>> GetAllAsync()
         {
             return await _context.CourseOfferings.ToListAsync();
+        }
+
+        public async Task GetWithEnrollmentsAsync(int courseId)
+        {
+            await GetByIdAsync(courseId);
         }
 
 

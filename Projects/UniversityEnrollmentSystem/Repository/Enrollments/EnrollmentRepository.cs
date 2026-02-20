@@ -11,6 +11,7 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
         public async Task AddEnrollmentAsync(Enrollment enrollment)
         {
             await _context.Enrollments.AddAsync(enrollment);
+            await _context.SaveChangesAsync();
         }
 
         public async Task Update(Enrollment enrollment)

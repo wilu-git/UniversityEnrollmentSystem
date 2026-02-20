@@ -15,5 +15,6 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
         Task <List<CourseOffering>> GetAllAsync();
         Task DeleteAsync(int courseId);
         Task GetWithEnrollmentsAsync(int courseId);
+        Task GetWithEnrollmentsAsync();
     }
 }

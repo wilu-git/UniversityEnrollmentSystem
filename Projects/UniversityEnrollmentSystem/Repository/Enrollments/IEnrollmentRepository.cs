@@ -9,5 +9,9 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
         Task Delete(Enrollment enrollment);
         Task <Enrollment?> GetByIdAsync(int id);
         Task <List<Enrollment>> GetAllAsync();
+        Task AddAsync(Enrollment enrollment);
+        Task UpdateAsync(Enrollment enrollment);
+        Task<bool> ExistsAsync(int studentId, int courseId);
+        Task GetCourseWithEnrollmentsAsync(int courseId);
     }
 }

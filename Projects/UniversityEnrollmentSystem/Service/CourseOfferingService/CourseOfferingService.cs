@@ -15,7 +15,7 @@ namespace UniversityEnrollmentSystem.Service.CourseOfferingService
 
         public async Task DeleteCourseOfferingAsync(int id)
         {
-            var course = await _courseRepository.GetWithEnrollmentsAsync(id);
+            var course = await _courseRepository.GetWithEnrollmentsAsync();
 
             if (course == null)
                 throw new Exception("Course not found");

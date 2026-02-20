@@ -49,6 +49,10 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
             return enrollment;
         }
 
+        public Task<Enrollment> EnrollStudentAsync(int studentId, int courseOfferingId)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task UpdateGradeAsync(int enrollmentId, int grade)
         {
@@ -64,6 +68,11 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
             enrollment.Grade = grade;
 
             await _enrollmentRepository.UpdateAsync(enrollment);
+        }
+
+        public Task UpdategradeAsync(int enrollmentId, int grade)
+        {
+            throw new NotImplementedException();
         }
     }
 }
