@@ -18,8 +18,4 @@
     <ProjectReference Include="..\UniversityEnrollmentSystem\UniversityEnrollmentSystem.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="BondocUnitTests\" />
-  </ItemGroup>
-
 </Project>

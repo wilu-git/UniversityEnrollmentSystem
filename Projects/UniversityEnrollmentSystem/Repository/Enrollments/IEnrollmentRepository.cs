@@ -11,6 +11,6 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
         Task <List<Enrollment>> GetAllAsync();
         Task<bool> ExistsAsync(int studentId, int courseId);
         Task GetCourseWithEnrollmentsAsync(int courseId);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int courseId);
     }
 }

@@ -12,6 +12,11 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
             _enrollmentRepository = enrollmentRepository;
         }
 
+        public async Task AssignGradeAsync(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
+
         //public async Task<Enrollment> EnrollAsync(int studentId, int courseId)
         //{
         //    throw new NotImplementedException();
@@ -20,7 +25,7 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
         //    //if (course == null)
         //    //    throw new Exception("Course not found");
 
-           
+
         //    //if (course.Enrollments.Count >= course.Capacity)
         //    //    throw new Exception("Course is full");
 
@@ -30,13 +35,13 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
         //    //if (alreadyExists)
         //    //    throw new Exception("Student already enrolled");
 
-            
+
         //    //var today = DateTime.Today;
 
         //    //if (today < course.StartDate || today > course.EndDate)
         //    //    throw new Exception//}("Enrollment outside semester dates");
 
-           
+
         //    //var enrollment = new Enrollment
         //    //{
         //    //    StudentId = studentId,
@@ -47,7 +52,7 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
         //    //await _enrollmentRepository.AddAsync(enrollment);
 
         //    //return enrollment;
-        
+
 
         public async Task DeleteCourseOfferingAsync(int id)
         {
@@ -60,6 +65,11 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
                 throw new Exception("Cannot delete course if enrollments exist");
 
             await _enrollmentRepository.DeleteAsync(id);
+        }
+
+        public async Task EnrollAsync(int v1, int v2)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<Enrollment> EnrollStudentAsync(int studentId, int courseOfferingId)
