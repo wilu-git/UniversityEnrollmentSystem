@@ -9,7 +9,7 @@ using UniversityEnrollmentSystem.Repository.Students;
 using UniversityEnrollmentSystem.Service.StudentService;
 using Xunit;
 
-namespace UniversityEnrollmentSystem.Tests.CruzUnitTests
+namespace UniversityEnrollmentSystem.Tests.ServiceTests
 {
     public class StudentServiceTests
     {
