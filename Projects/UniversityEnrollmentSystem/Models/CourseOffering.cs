@@ -22,4 +22,6 @@ public partial class CourseOffering
     public virtual Instructor Instructor { get; set; } = null!;
 
     public virtual Semester Semester { get; set; } = null!;
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
 }
