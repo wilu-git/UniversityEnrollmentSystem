@@ -15,15 +15,16 @@ namespace UniversityEnrollmentSystem.Service.CourseOfferingService
 
         public async Task DeleteCourseOfferingAsync(int id)
         {
-            var course = await _courseRepository.GetWithEnrollmentsAsync(id);
+            throw new NotImplementedException();
+            //var course = await _courseRepository.GetWithEnrollmentsAsync(id);
 
-            if (course == null)
-                throw new Exception("Course not found");
+            //if (course == null)
+            //    throw new Exception("Course not found");
 
-            if (course.Enrollments.Any())
-                throw new Exception("Cannot delete course if enrollments exist");
+            //if (course.Enrollments.Any())
+            //    throw new Exception("Cannot delete course if enrollments exist");
 
-            await _courseRepository.DeleteAsync(id);
+            //await _courseRepository.DeleteAsync(id);
         }
     }
 }
