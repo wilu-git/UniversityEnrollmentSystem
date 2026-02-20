@@ -9,5 +9,6 @@ namespace UniversityEnrollmentSystem.Service.EnrollmentService
 
         //Task UpdategradeAsync(int enrollmentId, int grade);
 
+        Task DeleteCourseOfferingAsync(int id);
     }
 }
