@@ -10,15 +10,16 @@ namespace UniversityEnrollmentSystem.Repository.Students
         public async Task AddStudentAsync(Student student)
         {
             await _context.Students.AddAsync(student);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Student student)
+        public async Task UpdateAsync(Student student)
         {
             _context.Students.Update(student);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(Student student)
+        public async Task DeleteAsync(Student student)
         {
             _context.Students.Remove(student);
             await _context.SaveChangesAsync();
@@ -36,6 +37,11 @@ namespace UniversityEnrollmentSystem.Repository.Students
         public  async Task<Student?> GetByEmailAsync(string email)
         {
             return await _context.Students.FirstOrDefaultAsync(s => s.Email == email);
+        }
+
+        public async Task<bool> StudentNumberExistsAsync(string studentNumber)
+        {
+            return await _context.Students.AnyAsync(x => x.StudentNumber == studentNumber);
         }
 
     }
