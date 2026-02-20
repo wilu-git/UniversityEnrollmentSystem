@@ -8,7 +8,7 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
         private readonly UniversityDbContext _context = context;
     
 
-        public async Task AddEnrollmentAsync(Enrollment enrollment)
+        public async Task AddAsync(Enrollment enrollment)
         {
             await _context.Enrollments.AddAsync(enrollment);
             await _context.SaveChangesAsync();
@@ -35,43 +35,13 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
             return await _context.Enrollments.ToListAsync();
         }
 
-        public async Task<bool> HasEnrollmentsAsync(int courseOfferingId)
+        public async Task<bool> ExistsAsync(int studentId, int courseId)
         {
             return await _context.Enrollments
-                .AnyAsync(e => e.CourseOfferingId == courseOfferingId);
+        .AnyAsync(e => e.StudentId == studentId && e.CourseOfferingId == courseId);
         }
 
-        public Task Update(Enrollment enrollment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(Enrollment enrollment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddAsync(Enrollment enrollment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ExistsAsync(int studentId, int courseId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task GetCourseWithEnrollmentsAsync(int courseId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task GetWithEnrollmentsAsync(int id)
+        public async Task GetCourseWithEnrollmentsAsync(int courseId)
         {
             throw new NotImplementedException();
         }
