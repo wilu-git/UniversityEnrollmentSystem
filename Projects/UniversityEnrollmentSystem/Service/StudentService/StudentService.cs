@@ -30,7 +30,7 @@ namespace UniversityEnrollmentSystem.Service.StudentService
 
         public async Task UpdateStudentAsync(Student student)
         {
-            await _studentRepository.Update(student);
+            await _studentRepository.UpdateAsync(student);
         }
 
         public async Task DeleteStudentAsync(int id)
@@ -40,7 +40,7 @@ namespace UniversityEnrollmentSystem.Service.StudentService
             if (student == null)
                 throw new Exception("Student not found");
 
-            await _studentRepository.Delete(student);
+            await _studentRepository.DeleteAsync(student);
         }
 
         public async Task<Student?> GetByIdAsync(int id)

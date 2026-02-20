@@ -5,11 +5,11 @@ namespace UniversityEnrollmentSystem.Service.CourseOfferingService
 {
     public class CourseOfferingService : ICourseOfferingService
     {
-        private readonly ICourseOfferingRepository _courseRepository;
+        private readonly ICourseOfferingRepository _courseOfferingRepository;
 
-        public CourseOfferingService(ICourseOfferingRepository courseRepository)
+        public CourseOfferingService(ICourseOfferingRepository courseOfferingRepository)
         {
-            _courseRepository = courseRepository;
+            _courseOfferingRepository = courseOfferingRepository;
         }
 
         public Task AddCourseOfferingAsync(CourseOffering courseOffering)
