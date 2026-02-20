@@ -40,5 +40,40 @@ namespace UniversityEnrollmentSystem.Repository.Enrollments
             return await _context.Enrollments
                 .AnyAsync(e => e.CourseOfferingId == courseOfferingId);
         }
+
+        public Task Update(Enrollment enrollment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(Enrollment enrollment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddAsync(Enrollment enrollment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ExistsAsync(int studentId, int courseId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task GetCourseWithEnrollmentsAsync(int courseId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task GetWithEnrollmentsAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

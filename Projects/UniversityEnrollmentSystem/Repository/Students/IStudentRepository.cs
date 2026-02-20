@@ -12,5 +12,7 @@ namespace UniversityEnrollmentSystem.Repository.Students
 
         Task<Student?> GetByEmailAsync(string email);
         Task<bool> StudentNumberExistsAsync(string studentNumber);
+        Task Update(Student student);
+        Task Delete(Student student);
     }
 }

@@ -44,5 +44,14 @@ namespace UniversityEnrollmentSystem.Repository.Students
             return await _context.Students.AnyAsync(x => x.StudentNumber == studentNumber);
         }
 
+        public Task Update(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(Student student)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
