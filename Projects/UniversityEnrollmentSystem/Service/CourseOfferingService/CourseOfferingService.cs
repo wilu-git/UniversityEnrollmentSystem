@@ -12,6 +12,10 @@ namespace UniversityEnrollmentSystem.Service.CourseOfferingService
             _courseRepository = courseRepository;
         }
 
+        public Task AddCourseOfferingAsync(CourseOffering courseOffering)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task DeleteCourseOfferingAsync(int id)
         {
@@ -24,6 +28,16 @@ namespace UniversityEnrollmentSystem.Service.CourseOfferingService
                 throw new Exception("Cannot delete course if enrollments exist");
 
             await _courseRepository.DeleteAsync(id);
+        }
+
+        public Task<List<CourseOffering>> GetAllCourseOfferingsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CourseOffering?> GetCourseOfferingByIdAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
