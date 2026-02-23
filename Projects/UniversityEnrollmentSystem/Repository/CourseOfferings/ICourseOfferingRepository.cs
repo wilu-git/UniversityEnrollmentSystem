@@ -4,7 +4,7 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
 {
     public interface ICourseOfferingRepository
     {
-        Task AddCourseOfferingAsync(CourseOffering courseOffering);
+        Task AddAsync(CourseOffering courseOffering);
 
         Task UpdateAsync(CourseOffering courseOffer);
 

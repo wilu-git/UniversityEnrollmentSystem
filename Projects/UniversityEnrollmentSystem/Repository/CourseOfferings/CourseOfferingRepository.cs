@@ -8,7 +8,7 @@ namespace UniversityEnrollmentSystem.Repository.CourseOfferings
         private readonly UniversityDbContext _context = context;
 
 
-        public async Task AddCourseOfferingAsync(CourseOffering courseOffer)
+        public async Task AddAsync(CourseOffering courseOffer)
         {
             await _context.CourseOfferings.AddAsync(courseOffer);
             await _context.SaveChangesAsync();
